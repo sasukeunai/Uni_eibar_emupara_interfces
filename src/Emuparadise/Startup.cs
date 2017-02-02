@@ -42,6 +42,8 @@ namespace Emuparadise
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<EmuparadiseDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("EmuparadiseConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
